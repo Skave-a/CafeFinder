@@ -21,6 +21,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin: 60px auto;
-  width: 400px;
+  padding: 20px;
+}
+p {
+  margin: 0;
 }
 </style>

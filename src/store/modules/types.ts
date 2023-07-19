@@ -14,5 +14,6 @@ export type Restaurant = {
 };
 
 export type State = {
+  post: Restaurant;
   posts: Restaurant[];
 };

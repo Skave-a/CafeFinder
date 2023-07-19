@@ -11,6 +11,7 @@ npm install
 ```
 npm run serve
 ```
+
 in developing..
 demo - https://cafe-finder-skave-a.netlify.app/
 
@@ -21,9 +22,8 @@ demo - https://cafe-finder-skave-a.netlify.app/
 Есть ещё задание «со звездочкой», оно и не обязательное: сделать так, чтобы выбранным вариантом кафе можно было поделиться с друзьями.
 
 Api с данными по кафе
-Список всех:  https://bandaumnikov.ru/api/test/site/get-index 
-По id можно получить данные по отдельному зваедению https://bandaumnikov.ru/api/test/site/get-view?id=1 
-
+Список всех: https://bandaumnikov.ru/api/test/site/get-index
+По id можно получить данные по отдельному зваедению https://bandaumnikov.ru/api/test/site/get-view?id=1
 
 Технические особенности
 Решение прислать двумя ссылками: на репозиторий и работающую страницу.  
@@ -32,4 +32,3 @@ Api с данными по кафе
 Можно использовать npm/yarn, webpack и другие сборщики модулей, и даже Vue CLI.
 Приветствуется использование ES6+ возможностей спецификации и современных возможностей CSS.
 Нельзя использовать jQuery.
-

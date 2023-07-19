@@ -1,14 +1,17 @@
 <script>
 import Posts from "@/components/Posts";
+import Post from "@/components/Post";
 export default {
   components: {
     Posts,
+    Post,
   },
 };
 </script>
 
 <template>
   <div id="app">
+    <Post />
     <Posts />
   </div>
 </template>

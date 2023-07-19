@@ -1,12 +1,12 @@
 import { ActionContext } from "vuex";
 import { Restaurant, State } from "./types";
+import { reactive } from "vue";
+import { BASE_URL } from "@/constants";
 
 export default {
   actions: {
     async fetchPosts(ctx: ActionContext<State, State>): Promise<void> {
-      const res = await fetch(
-        "https://bandaumnikov.ru/api/test/site/get-index"
-      );
+      const res = await fetch(`${BASE_URL}/get-index`);
       const posts = await res.json();
       ctx.commit("updatePosts", posts.data);
     },
@@ -16,14 +16,14 @@ export default {
       state.posts = posts;
     },
   },
-  state: {
+  state: reactive({
     posts: [],
-  },
+  }),
   getters: {
     allPosts(state: State): Restaurant[] {
       return state.posts;
     },
-    postsCount(state: State, getters: any): number {
+    postsCount(getters: any): number {
       return getters.allPosts.length;
     },
   },

@@ -10,10 +10,8 @@ export default {
 </script>
 
 <template>
-  <div id="app">
-    <Post />
-    <Posts />
-  </div>
+  <Post />
+  <Posts />
 </template>
 
 <style>

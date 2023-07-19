@@ -1,11 +1,20 @@
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { computed, onMounted } from "vue";
+import { useStore } from "vuex";
+
 export default {
-  name: "app",
-  computed: mapGetters(["allPosts"]),
-  methods: mapActions(["fetchPosts"]),
-  async mounted() {
-    this.fetchPosts();
+  name: "ShowRestaurants",
+  setup() {
+    const store = useStore();
+    const allPosts = computed(() => store.getters.allPosts);
+
+    onMounted(async () => {
+      await store.dispatch("fetchPosts");
+    });
+
+    return {
+      allPosts,
+    };
   },
 };
 </script>
@@ -68,10 +77,11 @@ export default {
 }
 .post__face {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   width: -webkit-fill-available;
   height: 100px;
   margin-bottom: 15px;
+  gap: 10px;
 }
 .post__title {
 }

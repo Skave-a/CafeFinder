@@ -1,9 +1,13 @@
 <script>
 import { computed, onMounted } from "vue";
 import { useStore } from "vuex";
+import Sharing from "@/components/Sharing";
 
 export default {
   name: "ShowRestaurants",
+  components: {
+    Sharing,
+  },
   setup() {
     const store = useStore();
     const allPosts = computed(() => store.getters.allPosts);
@@ -16,10 +20,38 @@ export default {
       allPosts,
     };
   },
+  data() {
+    return {
+      sharing: {
+        url: "https://cafe-finder-skave-a.netlify.app/",
+        title: "Посмотри заведение",
+      },
+      networks: [
+        {
+          network: "email",
+          name: "Email",
+          icon: "far fah fa-lg fa-envelope",
+          color: "#333333",
+        },
+        {
+          network: "whatsapp",
+          name: "Whatsapp",
+          icon: "fab fah fa-lg fa-whatsapp",
+          color: "#25d366",
+        },
+      ],
+    };
+  },
 };
 </script>
 
 <template>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+    integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ="
+    crossorigin="anonymous"
+  />
   <div class="posts">
     <div class="post" v-for="post in allPosts" :key="post.id">
       <div class="post__header">
@@ -80,11 +112,12 @@ export default {
           </p></template
         >
       </div>
+      <Sharing />
     </div>
   </div>
 </template>
 
-<style>
+<style lang="scss">
 .posts {
   display: flex;
   gap: 20px;
@@ -92,6 +125,7 @@ export default {
   flex-wrap: wrap;
   justify-content: center;
 }
+
 .post {
   background-color: rgb(255, 255, 255);
   color: rgba(0, 0, 0, 0.87);
@@ -101,12 +135,13 @@ export default {
     rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
   overflow: hidden;
   width: 300px;
-  height: 422px;
+  height: 490px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 10px;
 }
+
 .post__face {
   display: flex;
   justify-content: space-between;
@@ -114,9 +149,6 @@ export default {
   height: 100px;
   margin-bottom: 15px;
   gap: 10px;
-}
-
-.post__item {
 }
 
 .post__header {

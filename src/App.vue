@@ -24,7 +24,12 @@ export default {
   margin: 60px auto;
   padding: 20px;
 }
+
 p {
   margin: 0;
+}
+
+a {
+  text-decoration: none;
 }
 </style>

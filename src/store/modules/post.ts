@@ -1,4 +1,4 @@
-import { ActionContext } from "vuex";
+import { ActionContext, GetterTree } from "vuex";
 import { Restaurant, State } from "./types";
 import { reactive } from "vue";
 import { BASE_URL } from "@/constants";
@@ -23,7 +23,7 @@ export default {
     allPosts(state: State): Restaurant[] {
       return state.posts;
     },
-    postsCount(state: State, getters: any): number {
+    postsCount(state: State, getters: GetterTree<State, State>): number {
       return getters.allPosts.length;
     },
   },

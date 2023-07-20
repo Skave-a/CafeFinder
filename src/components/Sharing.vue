@@ -27,7 +27,7 @@ export default {
           network: "email",
           name: "Email",
           icon: "far fah fa-lg fa-envelope",
-          color: "#4f46e5",
+          color: "$main-color",
         },
         {
           network: "whatsapp",
@@ -61,7 +61,8 @@ export default {
   </div>
 </template>
 
-<style>
+<style lang="scss" scoped>
+@import "@/assets/styles/main.scss";
 .share-network-list {
   display: flex;
   flex-direction: row;

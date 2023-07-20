@@ -60,14 +60,16 @@ export default defineComponent({
 </template>
 
 <style lang="scss" scoped>
+@import "@/assets/styles/main.scss";
+
 .btn {
   width: 250px;
   box-sizing: border-box;
   appearance: none;
   background-color: transparent;
-  border: 2px solid #4f46e5;
+  border: 2px solid $main-color;
   border-radius: 0.6em;
-  color: #4f46e5;
+  color: $main-color;
   cursor: pointer;
   display: flex;
   align-self: center;
@@ -84,9 +86,9 @@ export default defineComponent({
   font-weight: 700;
 
   &:hover {
-    color: #fff;
+    color: $white;
     outline: 0;
-    box-shadow: 0 0 40px 40px #4f46e5 inset;
+    box-shadow: 0 0 40px 40px $main-color inset;
   }
 
   transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
@@ -112,9 +114,9 @@ export default defineComponent({
   -moz-appearance: none;
   appearance: none;
   background-color: transparent;
-  border: 2px solid #4f46e5;
+  border: 2px solid $main-color;
   border-radius: 0.6em;
-  color: #4f46e5;
+  color: $main-color;
   display: flex;
   align-self: center;
   font-size: 1rem;
@@ -141,7 +143,7 @@ export default defineComponent({
 
 .post__luck {
   margin-left: auto;
-  color: #4f46e552;
+  color: $main-color-trasparent;
   cursor: auto;
 }
 </style>

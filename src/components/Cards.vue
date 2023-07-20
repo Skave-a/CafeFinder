@@ -94,7 +94,8 @@ export default {
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
+@import "@/assets/styles/main.scss";
 .posts {
   display: flex;
   gap: 20px;
@@ -104,7 +105,7 @@ export default {
 }
 
 .post {
-  background-color: rgb(255, 255, 255);
+  background-color: $white;
   color: rgba(0, 0, 0, 0.87);
   transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   border-radius: 4px;
@@ -158,8 +159,8 @@ export default {
   border-radius: 50%;
   overflow: hidden;
   user-select: none;
-  color: rgb(255, 255, 255);
-  background-color: #4f46e5;
+  color: $white;
+  background-color: $main-color;
 }
 
 .header__content {

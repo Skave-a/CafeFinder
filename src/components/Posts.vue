@@ -37,7 +37,7 @@ export default {
         Идти <strong>{{ post.distance }} м</strong>
       </p>
       <p class="post__item">
-        В путре: <strong>{{ post.time }}</strong> мин
+        В пути: <strong>{{ post.time }}</strong> мин
       </p>
       <p class="post__item">
         Бизнес-ланч: <strong>{{ post.business_lunch ? "есть" : "нет" }}</strong>

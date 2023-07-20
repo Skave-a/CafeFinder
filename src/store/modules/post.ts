@@ -23,7 +23,7 @@ export default {
     allPosts(state: State): Restaurant[] {
       return state.posts;
     },
-    postsCount(getters: any): number {
+    postsCount(state: State, getters: any): number {
       return getters.allPosts.length;
     },
   },

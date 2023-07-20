@@ -1,11 +1,26 @@
 <script>
+import Restaurant from "@/store/modules/types";
+
 export default {
   name: "SharingCafe",
+  props: {
+    post: {
+      type: Restaurant,
+      required: true,
+    },
+  },
   data() {
     return {
       sharing: {
         url: "https://cafe-finder-skave-a.netlify.app/",
-        title: "Посмотри заведение",
+        title: "Привет! Посмотри заведение на ",
+        description: ` - ${this.post.name}, до него идти ${
+          this.post.time
+        } мин, ${
+          this.post.business_lunch
+            ? "и у них есть бизнес-ланч!"
+            : "только у них нет бизнес-ланча"
+        }`,
       },
       networks: [
         {
@@ -27,12 +42,6 @@ export default {
 </script>
 
 <template>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
-    integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ="
-    crossorigin="anonymous"
-  />
   <div class="share-network-list">
     <ShareNetwork
       v-for="network in networks"

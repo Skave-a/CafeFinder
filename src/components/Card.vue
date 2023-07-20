@@ -17,10 +17,21 @@ export default defineComponent({
       await fetchPost();
     };
 
+    const handleName = async () => {
+      const postId = post.value.id;
+      const postElement = document.getElementById(`post-${postId}`);
+      postElement.scrollIntoView({ behavior: "smooth" });
+      postElement.classList.add("highlight");
+      setTimeout(() => {
+        postElement.classList.remove("highlight");
+      }, 3000);
+    };
+
     return {
       post,
       postsCount,
       handleClick,
+      handleName,
     };
   },
 });
@@ -31,7 +42,18 @@ export default defineComponent({
     <button @click="handleClick" class="btn">Мне повезет!</button>
     <div class="post__block">
       <template v-if="post && post.name">
-        <strong>{{ post.name }}</strong>
+        <strong
+          :class="{
+            post__title: post.name.length <= 15,
+            'post__title--long': post.name.length > 15,
+          }"
+          @click="handleName"
+        >
+          {{ post.name }}
+        </strong>
+      </template>
+      <template v-else>
+        <strong class="post__title post__luck">...Удачи</strong>
       </template>
     </div>
   </div>
@@ -39,6 +61,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .btn {
+  width: 250px;
   box-sizing: border-box;
   appearance: none;
   background-color: transparent;
@@ -48,6 +71,7 @@ export default defineComponent({
   cursor: pointer;
   display: flex;
   align-self: center;
+  justify-content: center;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1;
@@ -75,12 +99,49 @@ export default defineComponent({
 .getLuck {
   display: flex;
   align-items: center;
-  gap: 20px;
   justify-content: center;
   margin-bottom: 20px;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .post__block {
   width: 250px;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #4f46e5;
+  border-radius: 0.6em;
+  color: #4f46e5;
+  display: flex;
+  align-self: center;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  margin: 20px;
+  padding: 1.2em 2.8em;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}
+
+.post__title {
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.post__title--long {
+  text-transform: initial;
+  font-size: 10px;
+}
+
+.post__luck {
+  margin-left: auto;
+  color: #4f46e552;
+  cursor: auto;
 }
 </style>

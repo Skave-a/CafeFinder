@@ -20,40 +20,17 @@ export default {
       allPosts,
     };
   },
-  data() {
-    return {
-      sharing: {
-        url: "https://cafe-finder-skave-a.netlify.app/",
-        title: "Посмотри заведение",
-      },
-      networks: [
-        {
-          network: "email",
-          name: "Email",
-          icon: "far fah fa-lg fa-envelope",
-          color: "#333333",
-        },
-        {
-          network: "whatsapp",
-          name: "Whatsapp",
-          icon: "fab fah fa-lg fa-whatsapp",
-          color: "#25d366",
-        },
-      ],
-    };
-  },
 };
 </script>
 
 <template>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
-    integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ="
-    crossorigin="anonymous"
-  />
   <div class="posts">
-    <div class="post" v-for="post in allPosts" :key="post.id">
+    <div
+      class="post"
+      v-for="post in allPosts"
+      :key="post.id"
+      :id="'post-' + post.id"
+    >
       <div class="post__header">
         <div class="header__avatar">
           <div class="header__letter">
@@ -112,7 +89,7 @@ export default {
           </p></template
         >
       </div>
-      <Sharing />
+      <Sharing :post="post" />
     </div>
   </div>
 </template>
@@ -230,5 +207,9 @@ export default {
   flex-direction: column;
   gap: 10px;
   align-items: flex-start;
+}
+
+.highlight {
+  box-shadow: 0px 5px 10px 2px rgba(147, 86, 234, 0.2);
 }
 </style>

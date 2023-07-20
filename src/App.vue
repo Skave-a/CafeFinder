@@ -1,22 +1,22 @@
 <script>
-import Posts from "@/components/Posts";
-import Post from "@/components/Post";
+import Cards from "@/components/Cards";
+import Card from "@/components/Card";
 export default {
   components: {
-    Posts,
-    Post,
+    Cards,
+    Card,
   },
 };
 </script>
 
 <template>
-  <Post />
-  <Posts />
+  <Card />
+  <Cards />
 </template>
 
 <style>
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
